@@ -1,3 +1,4 @@
+import { ToastNotification } from '@/components/iu/ToastNotification'
 import { OrderSidebar } from '@/components/order/order-sidebar'
 import { OrderSummary } from '@/components/order/order-summary'
 
@@ -15,6 +16,7 @@ export default function OrderLayout({
         </main>
         <OrderSummary />
       </div>
+      <ToastNotification />
     </>
   )
 }
