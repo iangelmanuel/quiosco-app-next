@@ -8,43 +8,37 @@ datasource db {
 }
 
 model Category {
-  id       Int      @id @default(autoincrement())
-  name      String
-  slug      String
-
+  id  Int   @id   @default(autoincrement())
+  name  String
+  slug  String
   products  Product[]
 }
 
 model Product {
-  id          Int      @id @default(autoincrement())
-  name        String
-  price       Float
-  image       String
-
+  id  Int   @id   @default(autoincrement())
+  name  String
+  price Float
+  image String
   categoryId  Int
-  category    Category @relation(fields: [categoryId], references: [id])
+  category  Category @relation(fields: [categoryId], references: [id])
   orderItems OrderProducts[]
 }
 
 model Order {
-  id         Int      @id @default(autoincrement())
-  name       String
-  total      Float
-  date       DateTime @default(now())
-  status     Boolean @default(false)
-  orderReadyAt DateTime?
-
+  id      Int   @id   @default(autoincrement())
+  name    String
+  total   Float
+  date    DateTime  @default(now())
+  status  Boolean   @default(false)
+  orderReadyAt  DateTime?
   orderProducts OrderProducts[]
 }
 
 model OrderProducts {
-  id         Int      @id @default(autoincrement())
-  quantity   Int
-  price      Float
-
-  orderId    Int
-  productId  Int
-
-  order      Order   @relation(fields: [orderId], references: [id])
-  product    Product @relation(fields: [productId], references: [id])
+  id      Int   @id   @default(autoincrement())
+  orderId Int
+  order   Order @relation(fields: [orderId], references: [id])
+  productId   Int
+  product   Product @relation(fields: [productId], references: [id])
+  quantity  Int
 }
