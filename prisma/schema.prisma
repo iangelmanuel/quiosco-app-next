@@ -23,4 +23,28 @@ model Product {
 
   categoryId  Int
   category    Category @relation(fields: [categoryId], references: [id])
+  orderItems OrderProducts[]
+}
+
+model Order {
+  id         Int      @id @default(autoincrement())
+  name       String
+  total      Float
+  date       DateTime @default(now())
+  status     Boolean @default(false)
+  orderReadyAt DateTime?
+
+  orderProducts OrderProducts[]
+}
+
+model OrderProducts {
+  id         Int      @id @default(autoincrement())
+  quantity   Int
+  price      Float
+
+  orderId    Int
+  productId  Int
+
+  order      Order   @relation(fields: [orderId], references: [id])
+  product    Product @relation(fields: [productId], references: [id])
 }
