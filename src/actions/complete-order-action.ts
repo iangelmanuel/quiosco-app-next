@@ -7,7 +7,7 @@ import { OrderIdSchema } from '@/schema'
 export async function completeOrder(formData: FormData) {
   try {
     const data = {
-      orderId: formData.get('orderId'),
+      orderId: formData.get('order-id'),
     }
     const result = OrderIdSchema.safeParse(data)
     if (!result.success) throw new Error(result.error.errors[0].message)
