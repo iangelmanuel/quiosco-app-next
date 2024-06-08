@@ -22,3 +22,7 @@ export const OrderIdSchema = z.object({
       message: 'El ID de la orden no es válido',
     }),
 })
+
+export const SearchSchema = z.object({
+  search: z.string().trim().min(1, 'La búsqueda no puede estar vacía'),
+})
