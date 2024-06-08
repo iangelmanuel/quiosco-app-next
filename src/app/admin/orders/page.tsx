@@ -19,7 +19,7 @@ export default function OrdersPage() {
     revalidateOnFocus: false,
   })
 
-  if (isLoading) return 'Cargando...'
+  if (isLoading) return <p className="text-center mt-10">Cargando...</p>
   if (orders)
     return (
       <>
