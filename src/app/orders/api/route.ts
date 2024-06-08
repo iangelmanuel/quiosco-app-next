@@ -6,14 +6,8 @@ export const dynamic = 'force-dynamic'
 export async function GET() {
   try {
     const orders = await prisma.order.findMany({
-      take: 5,
       where: {
-        orderReadyAt: {
-          not: null,
-        },
-      },
-      orderBy: {
-        orderReadyAt: 'desc',
+        status: true,
       },
       include: {
         orderProducts: {
@@ -23,7 +17,7 @@ export async function GET() {
         },
       },
     })
-    NextResponse.json(orders)
+    return NextResponse.json(orders)
   } catch (error) {
     console.log(error)
   }
