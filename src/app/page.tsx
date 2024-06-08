@@ -1,3 +1,4 @@
-export default function Home() {
-  return <h1>Hola Mundo Next.js</h1>
+import { redirect } from 'next/navigation'
+export default function HomePage() {
+  redirect('/order/cafe')
 }
