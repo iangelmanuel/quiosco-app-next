@@ -13,3 +13,12 @@ export const OrderSchema = z.object({
     })
   ),
 })
+
+export const OrderIdSchema = z.object({
+  orderId: z
+    .string()
+    .transform((value) => parseInt(value))
+    .refine((value) => value > 0, {
+      message: 'El ID de la orden no es válido',
+    }),
+})
