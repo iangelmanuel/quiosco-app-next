@@ -1,3 +1,4 @@
+import { Heading } from '@/components/iu/Heading'
 import { ProductCard } from '@/components/products/product-card'
 import { prisma } from '@/lib/prisma'
 
@@ -15,9 +16,7 @@ export default async function CategoryDinamicPage({
   const products = await getProducts(params.category)
   return (
     <>
-      <h1 className="text-2xl my-10">
-        Elige y personaliza tu pedido a continuación
-      </h1>
+      <Heading>Elige y personaliza tu pedido a continuación</Heading>
       <div className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-4 items-start">
         {products.map((product) => (
           <ProductCard key={product.id} product={product} />
