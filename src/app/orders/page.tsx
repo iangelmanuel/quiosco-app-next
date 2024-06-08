@@ -6,7 +6,7 @@ import type { OrderWithProducts } from '@/types'
 import { LastOrderItems } from '@/components/order/last-order-items'
 
 export default function OrdersPage() {
-  const url = '/admin/orders/api'
+  const url = '/orders/api'
   const fetcher = () =>
     fetch(url)
       .then((res) => res.json())

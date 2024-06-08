@@ -1,3 +1,5 @@
+'use client'
+
 import { Heading } from '@/components/iu/heading'
 import { OrderCard } from '@/components/order/order-card'
 import { OrderWithProducts } from '@/types'
